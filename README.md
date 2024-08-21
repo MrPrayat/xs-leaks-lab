@@ -23,8 +23,9 @@ On Linux/macOS, press Ctrl+O to write the changes, then Ctrl+X to exit.
 On Windows, save and close Notepad.
 
 
-**To build and run the containers (servers), follow these steps.**
+**To build and run the containers (servers), you have two options.**
 
+***FIRST OPTION***
 1. Navigate to your project directory (where docker-compose.yml is located).
 
 2. Build the Docker Containers:
@@ -42,6 +43,14 @@ Verify that the containers are running correctly:
 
 `docker ps`
 You should see both the victim and attacker containers running.
+
+***SECOND OPTION***
+1. Open git bash or something similar that allows you to run Unix-based commands.
+2. Navigate to the scripts directory
+3. Make the script executable, example with the file *setup.sh*:
+`chmod +x setup.sh`
+4. Run the script, example with *setup.sh*:
+`./setup.sh
 
 
 **Instructions for accessing victim or attacker site**
