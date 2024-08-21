@@ -1,0 +1,7 @@
+# Ignore Docker files
+docker-compose.override.yml
+docker-compose*.yml
+*.log
+
+# Ignore node_modules if any
+node_modules/
