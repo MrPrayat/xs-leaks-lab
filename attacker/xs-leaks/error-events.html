@@ -6,13 +6,13 @@
     <title>XS-Leak Attack: Admin Access Detection</title>
 </head>
 <body>
-    <h1>XS-Leak Attack: Admin Access Detection</h1>
+    <h1>XS-Leak Attack: Access Detection</h1>
 
     <script>
         // Function to test admin access
         function testAdminAccess() {
             const iframe = document.createElement('iframe');
-            iframe.src = "http://victim.local:8080/admin/index.html";
+            iframe.src = "http://victim.local:8080/xs-leaks/error-events.html";
             document.body.appendChild(iframe);
 
             iframe.onload = function() {

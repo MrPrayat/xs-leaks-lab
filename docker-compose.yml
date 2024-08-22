@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  victim:
+    build: ./victim
+    ports:
+      - "8080:80"
+    networks:
+      xsleaks-network:
+        ipv4_address: 172.18.0.2
+    hostname: victim.local
+    restart: unless-stopped  # Added restart policy due to old files being cached
+
+  attacker:
+    build: ./attacker
+    ports:
+      - "8081:80"
+    networks:
+      xsleaks-network:
+        ipv4_address: 172.18.0.3
+    hostname: attacker.local
+    restart: unless-stopped  # Added restart policy due to old files being cached
+
+networks:
+  xsleaks-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
