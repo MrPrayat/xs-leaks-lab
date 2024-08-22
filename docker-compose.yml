@@ -9,7 +9,6 @@ services:
       xsleaks-network:
         ipv4_address: 172.18.0.2
     hostname: victim.local
-    restart: unless-stopped  # Added restart policy due to old files being cached
 
   attacker:
     build: ./attacker
@@ -19,7 +18,6 @@ services:
       xsleaks-network:
         ipv4_address: 172.18.0.3
     hostname: attacker.local
-    restart: unless-stopped  # Added restart policy due to old files being cached
 
 networks:
   xsleaks-network:

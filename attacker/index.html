@@ -7,6 +7,16 @@
 </head>
 <body>
     <h1>Welcome to the Attacker Site</h1>
-    <a href="/xs-leaks/error-events.html">Error Events XS-Leak Attack</a><br>
+    <p>
+        By clicking the links below, you will exploit the website http://victim.local:8080.
+        You can test the XS-Leak attacks by trying to load one page that exists and one that does not,
+        then look at their response status codes to exploit this leak of information and determine if the page exists or not.
+        This is a proof of concept of the XS-Leak attack where the page we're accessing could be an admin page, and we can determine if the user has access to it or not.
+        We could also try accessing pages with specific values for specific IDs, and determine if the user has access to them or not.
+    </p>
+
+    <a href="/xs-leaks/error-events.html">Click here to test the error-events leak</a>
+
+
 </body>
 </html>
