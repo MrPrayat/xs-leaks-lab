@@ -63,3 +63,16 @@ Open your browser and visit:
 Similarly, visit:
 
 `http://attacker.local:8081`
+
+
+**APPLYING THE MITIGATION AGAINST XS-LEAKS**
+**To apply the mitigation against XS-leaks, you need to uncomment a line the `Dockerfile` for the victim. Follows these steps:
+1. Open the Dockerfile for the Victim
+
+2. Uncomment the mitigation line:
+
+# COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+This line tells Docker to replace the default NGINX configuration with a custom configuration that includes the XS-Leak mitigation.
+
+3. After doing this, rebuild the docker containers using the instructions earlier in this readme and the exploit should no longer work.
