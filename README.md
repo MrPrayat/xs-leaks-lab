@@ -71,7 +71,7 @@ Similarly, visit:
 
 2. Uncomment the mitigation line:
 
-# COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+`# COPY ./nginx.conf /etc/nginx/conf.d/default.conf`
 
 This line tells Docker to replace the default NGINX configuration with a custom configuration that includes the XS-Leak mitigation.
 
